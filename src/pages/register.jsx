@@ -4,7 +4,7 @@ class App extends Component {
     render() {
         return(
             <div className = "Employee-App">
-                 <div className = "Registration-From">
+                 <div className = "Registration-Form">
                      <h1>Registration From</h1>
 
                      <form onSubmit={this.handleSubmit } noValidate>
@@ -23,7 +23,7 @@ class App extends Component {
                              <input type='text' className='' placeholder='emailId' name='emailId' onChange={this.handleChange}></input>
                          </div>
 
-                         <div className='Password'>
+                         <div className='password'>
                              <label htmlFor='password'>Password</label>
                              <input type='text' className='' placeholder='password' name='password' onChange={this.handleChange}></input>
                          </div>

@@ -10,6 +10,8 @@ const formValid = ({ formErrors, ...rest }) => {
     
     return valid;
   }
+
+  const emailIdRegex = RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
   
 class App extends Component {
 
@@ -45,6 +47,48 @@ class App extends Component {
         }
       };
 
+      handleChange = e => {
+        e.preventDefault();
+    
+        const { name, value } = e.target;
+        let formErrors = this.state.formErrors;
+
+        //console.log('Name:' name);
+        //console.log('Value:' value);
+
+        switch (name) {
+
+            case "firstName":
+              formErrors.firstName =
+                value.length < 3 && value.length > 0
+                  ? "minimum 3 characters are required"
+                  : "";
+              break;
+      
+            case "lastName":
+              formErrors.lastName =
+                value.length < 3 && value.length > 0
+                  ? "minimum 3 characters are required"
+                  : "";
+              break;
+      
+            case "emailId":
+              formErrors.emailId =
+                emailIdRegex.test(value) && value.length > 0
+                  ? ''
+                  : "Invalid Email address";
+              break;
+      
+            case "password":
+              formErrors.password =
+                value.length < 6 && value.length > 0
+                  ? "minimum 6 characters are required"
+                  : "";
+              break;
+            default:
+              break;
+      }
+    }
     render() {
         return (
             <div className="Employee-App">

@@ -28,8 +28,11 @@ class App extends Component {
                              <input type='text' className='' placeholder='password' name='password' onChange={this.handleChange}></input>
                          </div>
 
-                     </form>
+                         <div className='RegistrationForm'>
+                             <button type='submit'>Register</button>
+                         </div>
 
+                     </form>
                  </div>
             </div>
         );
